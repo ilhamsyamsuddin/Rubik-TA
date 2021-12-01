@@ -65,6 +65,42 @@ string bin2hex(string s)
 	return hex;
 }
 
+int hex2dec(char hex){
+  unordered_map<char,int>mp;
+	mp['0'] = 0;
+	mp['1'] = 1;
+	mp['2'] = 2;
+	mp['3'] = 3;
+	mp['4'] = 4;
+	mp['5'] = 5;
+	mp['6'] = 6;
+	mp['7'] = 7;
+	mp['8'] = 8;
+	mp['9'] = 9;
+	mp['A'] = 10;
+	mp['B'] = 11;
+	mp['C'] = 12;
+	mp['D'] = 13;
+	mp['E'] = 14;
+	mp['F'] = 15;
+  return mp[hex];
+}
+
+char xor_bit(char bit1, char bit2){
+  if(bit1 == bit2) return '0';
+  return '1';
+}
+
+string xor_hex(string hex1, string hex2){
+  string bin1 = hex2bin(hex1);
+  string bin2 = hex2bin(hex2);
+  string ans = "";
+  for(short i =0; i<4;i++){
+    ans+= xor_bit(bin1[i], bin2[i]);
+  }
+  cout<<hex
+  return bin2hex(ans);
+}
 string permute(string k, int* arr, int n)
 {
     string permuted = "";
