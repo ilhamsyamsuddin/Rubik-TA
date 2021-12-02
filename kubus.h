@@ -16,7 +16,9 @@ class Cube{
           }
       }
     }
-
+    char getCell(int face, int row, int col){
+      return content[face][row][col];
+    }
     void printFace(int s){
       for (int j = 0; j < 3; j++) {
         for (int k = 0; k < 3; k++) {
@@ -436,28 +438,12 @@ class Cube{
       }
     }
 
-void get_face_key(string Key){
-  int index=0;
-  for(int i=0;i<6;i++){
-    for(int j=0;j<6;j++){
-      for(int k=0;k<6;k++){
-        content[i][j][k]=Key[index]%6;
-        index++;
+    void scramble(string sub_key){
+      for(int a = 0;a<20;a++){
+        int face = hex2dec(sub_key[a])/6;
+        int move = hex2dec(sub_key[a])/3; //0 = 90, 1 = 180, 2 = 270
+        if()
       }
     }
-  }
-}
-
-void get_angle_key(string Key){
-  int index=0;
-  for(int i=0;i<6;i++){
-    for(int j=0;j<6;j++){
-      for(int k=0;k<6;k++){
-        content[i][j][k]=Key[index]%3;
-        index++;
-      }
-    }
-  }
-}
   //end of public
 };

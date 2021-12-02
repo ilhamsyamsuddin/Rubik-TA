@@ -98,7 +98,7 @@ string xor_hex(string hex1, string hex2){
   for(short i =0; i<4;i++){
     ans+= xor_bit(bin1[i], bin2[i]);
   }
-  cout<<hex
+  cout<<hex;
   return bin2hex(ans);
 }
 string permute(string k, int* arr, int n)
@@ -109,7 +109,9 @@ string permute(string k, int* arr, int n)
     }
     return permuted;
 }
-
+/*string scramble(Cube box, string key){
+  box.rotateFace(0);
+}*/
 string encrypt(string pt){
 	string left = pt.substr(0, 48);
 	string right = pt.substr(48, 48);
@@ -133,3 +135,14 @@ string encrypt(string pt){
   return bin2hex(left + right);
 }
 
+string getContent(Cube box){
+  string text = "";
+  for (int i = 0; i < 6; i++) {
+    for (int j = 0; j < 3; j++) {
+      for (int k = 0; k < 3; k++) {
+        text+=box.getCell(i,j,k);
+      }
+    }
+  }
+  return text;
+}
