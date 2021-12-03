@@ -135,14 +135,30 @@ string encrypt(string pt){
   return bin2hex(left + right);
 }
 
-string getContent(Cube box){
-  string text = "";
-  for (int i = 0; i < 6; i++) {
-    for (int j = 0; j < 3; j++) {
-      for (int k = 0; k < 3; k++) {
-        text+=box.getCell(i,j,k);
+
+void scramble(string sub_key){
+  for(int a = 0;a<20;a++){
+    int face = hex2dec(sub_key[a])%6;
+    int move = hex2dec(sub_key[a])%3; //0 = 90, 1 = 180, 2 = 270
+    switch(face){
+        case 0:
+          cout <<"Sunday";
+          break;
+        case 1:
+          cout << "Monday";
+          break;
+        case 2:
+          cout << "Tuesday";
+          break;
+        case 3:
+          cout << "Wednesday";
+          break;
+        case 4:
+          cout << "Thursday";
+          break;
+        case 5:
+          cout << "Friday";
+          break;
       }
     }
-  }
-  return text;
 }

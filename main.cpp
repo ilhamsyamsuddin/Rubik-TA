@@ -28,8 +28,9 @@ int main(){
   //char a = box.getCell(0,0,2);
   //cout<<a<<endl;
   //box.rotateFace90(0);
-  string text = getContent(box);
+  string text = box.getContent();
   cout<<text<<endl;
+  scramble(message);
   /*Mcube.printAllFaces();
   Key_cube.printAllFaces();
   Mcube.xorCube(Key_cube);

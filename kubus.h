@@ -16,9 +16,19 @@ class Cube{
           }
       }
     }
-    char getCell(int face, int row, int col){
-      return content[face][row][col];
+    
+    string getContent(){
+      string text = "";
+      for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 3; j++) {
+          for (int k = 0; k < 3; k++) {
+            text+=content[i][j][k];
+          }
+        }
+      }
+      return text;
     }
+
     void printFace(int s){
       for (int j = 0; j < 3; j++) {
         for (int k = 0; k < 3; k++) {
@@ -435,14 +445,6 @@ class Cube{
                   content[i][j][k] = content[i][j][k] ^ c2.content[i][j][k];
               }
           }
-      }
-    }
-
-    void scramble(string sub_key){
-      for(int a = 0;a<20;a++){
-        int face = hex2dec(sub_key[a])/6;
-        int move = hex2dec(sub_key[a])/3; //0 = 90, 1 = 180, 2 = 270
-        if()
       }
     }
   //end of public
