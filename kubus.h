@@ -1,6 +1,26 @@
 #include<string>
 using namespace std;
 
+int hex2dec(char hex){
+  unordered_map<char,int>mp;
+	mp['0'] = 0;
+	mp['1'] = 1;
+	mp['2'] = 2;
+	mp['3'] = 3;
+	mp['4'] = 4;
+	mp['5'] = 5;
+	mp['6'] = 6;
+	mp['7'] = 7;
+	mp['8'] = 8;
+	mp['9'] = 9;
+	mp['A'] = 10;
+	mp['B'] = 11;
+	mp['C'] = 12;
+	mp['D'] = 13;
+	mp['E'] = 14;
+	mp['F'] = 15;
+  return mp[hex];
+}
 class Cube{
   private:
     char content[6][3][3];//0= UP;1= Front;2= Left;3= Right;4= Back;5= Down;
@@ -438,14 +458,91 @@ class Cube{
       content[1][0][2] = t1;      
     }
 
-    void xorCube(Cube c2){
-      for (int i = 0; i < 6; i++) {
-          for (int j = 0; j < 3; j++) {
-              for (int k = 0; k < 3; k++) {
-                  content[i][j][k] = content[i][j][k] ^ c2.content[i][j][k];
+    void scramble(string sub_key){
+      for(int a = 0;a<20;a++){
+        int face = hex2dec(sub_key[a])%6;
+        int move = hex2dec(sub_key[a+1])%3; //0 = 90, 1 = 180, 2 = 270
+        switch(face){
+            case 0:
+              switch(move){
+                case 0:
+                  rotateUp90();
+                  break;
+                case 1:
+                  rotateUp180();
+                  break;
+                case 2:
+                  rotateUp270();
+                  break;                       
               }
+              break;
+            case 1:
+              switch(move){
+                case 0:
+                  rotateFront90();
+                  break;
+                case 1:
+                  rotateFront180();
+                  break;
+                case 2:
+                  rotateFront270();
+                  break;                       
+              }
+              break;
+            case 2:
+              switch(move){
+                case 0:
+                  rotateLeft90();
+                  break;
+                case 1:
+                  rotateLeft180();
+                  break;
+                case 2:
+                  rotateLeft270();
+                  break;                       
+              }
+              break;
+            case 3:
+              switch(move){
+                case 0:
+                  rotateRight90();
+                  break;
+                case 1:
+                  rotateRight180();
+                  break;
+                case 2:
+                  rotateRight270();
+                  break;                       
+              }
+              break;
+            case 4:
+              switch(move){
+                case 0:
+                  rotateBack90();
+                  break;
+                case 1:
+                  rotateBack180();
+                  break;
+                case 2:
+                  rotateBack270();
+                  break;                       
+              }
+              break;
+            case 5:
+              switch(move){
+                case 0:
+                  rotateDown90();
+                  break;
+                case 1:
+                  rotateDown180();
+                  break;
+                case 2:
+                  rotateDown270();
+                  break;                     
+              }
+              break;
           }
-      }
+        }
     }
   //end of public
 };

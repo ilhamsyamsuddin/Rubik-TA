@@ -65,27 +65,6 @@ string bin2hex(string s)
 	return hex;
 }
 
-int hex2dec(char hex){
-  unordered_map<char,int>mp;
-	mp['0'] = 0;
-	mp['1'] = 1;
-	mp['2'] = 2;
-	mp['3'] = 3;
-	mp['4'] = 4;
-	mp['5'] = 5;
-	mp['6'] = 6;
-	mp['7'] = 7;
-	mp['8'] = 8;
-	mp['9'] = 9;
-	mp['A'] = 10;
-	mp['B'] = 11;
-	mp['C'] = 12;
-	mp['D'] = 13;
-	mp['E'] = 14;
-	mp['F'] = 15;
-  return mp[hex];
-}
-
 char xor_bit(char bit1, char bit2){
   if(bit1 == bit2) return '0';
   return '1';
@@ -133,32 +112,4 @@ string encrypt(string pt){
   pt_box.fillCube(right_expanded);
   //pt_box.printAllFaces();
   return bin2hex(left + right);
-}
-
-
-void scramble(string sub_key){
-  for(int a = 0;a<20;a++){
-    int face = hex2dec(sub_key[a])%6;
-    int move = hex2dec(sub_key[a])%3; //0 = 90, 1 = 180, 2 = 270
-    switch(face){
-        case 0:
-          cout <<"Sunday";
-          break;
-        case 1:
-          cout << "Monday";
-          break;
-        case 2:
-          cout << "Tuesday";
-          break;
-        case 3:
-          cout << "Wednesday";
-          break;
-        case 4:
-          cout << "Thursday";
-          break;
-        case 5:
-          cout << "Friday";
-          break;
-      }
-    }
 }

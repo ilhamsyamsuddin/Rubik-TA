@@ -30,7 +30,7 @@ int main(){
   //box.rotateFace90(0);
   string text = box.getContent();
   cout<<text<<endl;
-  scramble(message);
+  box.scramble(message);
   /*Mcube.printAllFaces();
   Key_cube.printAllFaces();
   Mcube.xorCube(Key_cube);
