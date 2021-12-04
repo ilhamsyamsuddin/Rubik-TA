@@ -31,6 +31,8 @@ int main(){
   string text = box.getContent();
   cout<<text<<endl;
   box.scramble(message);
+  text = box.getContent();
+  cout<<text<<endl;
   /*Mcube.printAllFaces();
   Key_cube.printAllFaces();
   Mcube.xorCube(Key_cube);
