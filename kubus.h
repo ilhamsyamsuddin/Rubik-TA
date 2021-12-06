@@ -459,7 +459,7 @@ class Cube{
     }
 
     void scramble(string sub_key){
-      for(int a = 0;a<20;a++){
+      for(int a = 0;a<20;a+=2){
         int face = hex2dec(sub_key[a])%6;
         int move = hex2dec(sub_key[a+1])%3; //0 = 90, 1 = 180, 2 = 270
         switch(face){
