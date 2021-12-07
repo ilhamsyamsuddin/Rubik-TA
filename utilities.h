@@ -87,6 +87,14 @@ char xor_hex(char hex1, char hex2){
 
   return xor_char[hex2dec(hex1)][hex2dec(hex2)];
 }
+
+string addRoundKey(string message, string key){
+  string ans = "";
+  for(int a = 0;a<54;a++){
+    ans.push_back(xor_hex(message[a],key[a]));
+  }
+  return ans;
+}
 string permute(string k, int* arr, int n)
 {
     string permuted = "";
@@ -115,4 +123,13 @@ string S_box[16][16] = {
   {"8C","A1","89","0D","BF","E6","42","68","41","99","2D","0F","B0","54","BB","16"}
 };
 
+string subBytes(string ans){
+  string sub = "";
+  for(int a = 0;a<54;a+=2){
+    int row = hex2dec(ans[a]);
+    int col = hex2dec(ans[a+1]);
+    sub+=S_box[row][col];
+  }
+  return sub;
+}
 //ChAr xor()
