@@ -544,5 +544,92 @@ class Cube{
           }
         }
     }
+
+  void solve(string sub_key){
+      for(int a = 18;a>=0;a-=2){
+        int face = hex2dec(sub_key[a])%6;
+        int move = hex2dec(sub_key[a+1])%3; //0 = 270, 1 = 180, 2 = 90
+        switch(face){
+            case 0:
+              switch(move){
+                case 0:
+                  rotateUp270();
+                  break;
+                case 1:
+                  rotateUp180();
+                  break;
+                case 2:
+                  rotateUp90();
+                  break;                       
+              }
+              break;
+            case 1:
+              switch(move){
+                case 0:
+                  rotateFront270();
+                  break;
+                case 1:
+                  rotateFront180();
+                  break;
+                case 2:
+                  rotateFront90();
+                  break;                       
+              }
+              break;
+            case 2:
+              switch(move){
+                case 0:
+                  rotateLeft270();
+                  break;
+                case 1:
+                  rotateLeft180();
+                  break;
+                case 2:
+                  rotateLeft90();
+                  break;                       
+              }
+              break;
+            case 3:
+              switch(move){
+                case 0:
+                  rotateRight270();
+                  break;
+                case 1:
+                  rotateRight180();
+                  break;
+                case 2:
+                  rotateRight90();
+                  break;                       
+              }
+              break;
+            case 4:
+              switch(move){
+                case 0:
+                  rotateBack270();
+                  break;
+                case 1:
+                  rotateBack180();
+                  break;
+                case 2:
+                  rotateBack90();
+                  break;                       
+              }
+              break;
+            case 5:
+              switch(move){
+                case 0:
+                  rotateDown270();
+                  break;
+                case 1:
+                  rotateDown180();
+                  break;
+                case 2:
+                  rotateDown90();
+                  break;                     
+              }
+              break;
+          }
+        }
+    }    
   //end of public
 };
