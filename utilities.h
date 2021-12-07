@@ -70,15 +70,7 @@ char xor_bit(char bit1, char bit2){
   return '1';
 }
 
-string xor_hex(string hex1, string hex2){
-  /*string bin1 = hex2bin(hex1);
-  string bin2 = hex2bin(hex2);
-  string ans = "";
-  for(short i =0; i<4;i++){
-    ans+= xor_bit(bin1[i], bin2[i]);
-  }
-  cout<<hex;
-  return bin2hex(ans);*/
+char xor_hex(char hex1, char hex2){
   char xor_char[16][16] = {
     {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'},
     {'1','0','3','2','5','4','7','6','9','8','B','A','D','C','F','E'},
@@ -97,6 +89,8 @@ string xor_hex(string hex1, string hex2){
     {'E','F','C','D','A','B','8','9','6','7','4','5','2','3','0','1'},
     {'F','E','D','C','B','A','9','8','7','6','5','4','3','2','1','0'}
   };
+
+  return xor_char[hex2dec(hex1)][hex2dec(hex2)];
 }
 string permute(string k, int* arr, int n)
 {
