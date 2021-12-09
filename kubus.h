@@ -267,13 +267,13 @@ class Cube{
       content[4][2][0] = content[3][2][0];
       content[3][2][0] = t1;
       
-      t1 = content[4][2][1];
+      t1 = content[1][2][1];
       content[1][2][1] = content[2][2][1];
       content[2][2][1] = content[4][2][1];
       content[4][2][1] = content[3][2][1];
       content[3][2][1] = t1;
 
-      t1 = content[4][2][2];
+      t1 = content[1][2][2];
       content[1][2][2] = content[2][2][2];
       content[2][2][2] = content[4][2][2];
       content[4][2][2] = content[3][2][2];
