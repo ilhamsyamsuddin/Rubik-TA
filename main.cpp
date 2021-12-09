@@ -25,39 +25,33 @@ int main(){
     roundKeys.push_back(roundKey);
   }
 
-  for(int a = 0;a<roundKeys.size();a++){
+  /*for(int a = 0;a<roundKeys.size();a++){
     cout<<a<<": "<<roundKeys[a]<<endl;
-  }
+  }*/
   string text;
   text = addRoundKey(message,key);
-  /*for(int a = 0;a<54;a++){
-    text.push_back(xor_hex(message[a],key[a]));
-  }*/
-  cout<<"XOR: "<<text<<endl;
-  text = subBytes(text);
-  cout<<"S-box: "<<text<<endl;
-
+  cout<<"initial: "<<text<<endl;
+  /*text = subBytes(text);
+  cout<<"S-Box: "<<text<<endl;
+  text = inverseSub(text);
+  cout<<"inverse: "<<text<<endl;*/
   for(int a = 1;a<=10;a++){
+    text = subBytes(text);
     Cube box;
     box.fillCube(text);
     box.scramble(roundKeys[a-1]);
     text = box.getContent();
+    text = addRoundKey(text,roundKeys[a]);
   }
   cout<<"scrambled: "<<text<<endl;
 
   for(int a = 10;a>=1;a--){
+    text = addRoundKey(text,roundKeys[a]);
     Cube box;
     box.fillCube(text);
     box.solve(roundKeys[a-1]);
     text = box.getContent();
+    text = inverseSub(text);
   }
   cout<<"solved: "<<text<<endl;
-  /*box.scramble(message);
-  box.rotateDown90();
-  text = box.getContent();
-  cout<<"scrambled: "<<text<<endl;
-  //box.solve(message);
-  box.rotateDown270();
-  text = box.getContent();
-  cout<<"Solved: "<<text<<endl;*/
 }
