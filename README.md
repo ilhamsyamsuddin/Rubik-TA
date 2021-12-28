@@ -9,3 +9,8 @@ Program ini merupkan cipher berdasarkan kubus rubik. Pada program ini, plaintext
    1. SubBytes. bit-bit  input disubstitusikan berdasarkan S-Box. 
    2. Scramble. pada langkah ini, input dimasukkan ke dalam struktur kubus rubik 3x3x3, yang setiap selnya memuat 4 bit(3x3x6x4=216),  kubus diacak berdasarkan round key, kecuali putaran pertama yang menggunakan kunci.
    3. Subbytes. hasil scramble di-XOR-kan dengan round key.
+
+<h3>Struktur Rubik</h3>
+Struktur Rubik merupakan kubus yang memiliki enam permukaan, dengan setiap permukaan memiliki sembilan sel yang disusun dalam tiga baris dan tiga kolom. Dipresentasikan dalam program sebqagai array tiga dimensi berukuran 6x3x3. 
+
+Setiap sel memuat empat bit, yang dipresentasikan dalam bilangan hexadesimal.
