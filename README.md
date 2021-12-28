@@ -11,9 +11,10 @@ Program ini merupkan cipher berdasarkan kubus rubik. Pada program ini, plaintext
    3. Subbytes. hasil scramble di-XOR-kan dengan round key.
 
 <h3>Struktur Rubik</h3>
-Struktur Rubik merupakan kubus yang memiliki enam permukaan, dengan setiap permukaan memiliki sembilan sel yang disusun dalam tiga baris dan tiga kolom. Dipresentasikan dalam program sebqagai array tiga dimensi berukuran 6x3x3. 
+Struktur Rubik merupakan kubus yang memiliki enam permukaan, dengan setiap permukaan memiliki sembilan sel yang disusun dalam tiga baris dan tiga kolom. Dipresentasikan dalam program sebqagai array tiga dimensi berukuran 6x3x3. Setiap sel memuat empat bit, yang dipresentasikan dalam bilangan hexadesimal.
 
 ![image](https://github.com/ilhamsyamsuddin/Rubik-TA/blob/main/Jejaring.jpg?raw=true)
-     	gambar struktur kubus dan index masing-masing sel
+gambar struktur kubus dan index masing-masing sel.
 	
-Setiap sel memuat empat bit, yang dipresentasikan dalam bilangan hexadesimal.
+
+Terdapat tiga operasi yang dapat dilakukan terhadap masing-masing permukaan, yaitu memutar 90 derajat, 180 derajat, dan 270 derajat. Sehingga terdapat 18 macam operasi.
